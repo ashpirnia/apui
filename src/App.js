@@ -1,10 +1,55 @@
 import React, { Component }  from 'react';
 import logo from './logo.svg';
 import Clock from './Clock';
-import Button from 'react-bootstrap/Button';
+import APIGW from './ApiGtw'
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { Button } from 'react-bootstrap';
+import AppNav from './AppNav';
 
 function App() {
+  return (
+    //<AppNav />
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/api-gateway">API Gateway --> Lambda</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/api-gateway">
+            <APIGW />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Home() {
   return (
     <div className="App">
       <header className="App-header">
@@ -22,6 +67,10 @@ function App() {
       </footer>
     </div>
   );
+}
+
+function About() {
+  return <h2>About</h2>;
 }
 
 function handleClick() {
