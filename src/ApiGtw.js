@@ -6,17 +6,18 @@ class APIGW extends React.Component {
     this.state = {
         error: null,
         isLoaded: false,
-        items: []
+        response: ""
       };
     }
 
   componentDidMount() {
-    fetch("https://8wpdedo54e.execute-api.ap-southeast-2.amazonaws.com/prod/")
-      .then(
+    fetch("https://8wpdedo54e.execute-api.ap-southeast-2.amazonaws.com/prod/helloworld?name=John&city=Seattle")
+    .then(res => res.json())
+    .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result
+            response: result.message
           });
         },
         (error) => {
@@ -36,7 +37,7 @@ class APIGW extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <p> { items } </p>
+        <p> { this.state.response } </p>
       );
     }
   }
