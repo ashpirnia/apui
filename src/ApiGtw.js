@@ -11,7 +11,7 @@ class APIGW extends React.Component {
     }
 
   componentDidMount() {
-    fetch("https://8wpdedo54e.execute-api.ap-southeast-2.amazonaws.com/prod/helloworld?name=John&city=Sydney")
+    fetch("https://8wpdedo54e.execute-api.ap-southeast-2.amazonaws.com/prod/helloworld?name=John&city=Melbourne")
     .then(res => res.json())
     .then(
         (result) => {
