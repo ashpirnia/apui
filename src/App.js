@@ -26,7 +26,7 @@ function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/api-gateway">API Gateway --> Lambda</Link>
+              <Link to="/api-gateway">API Gateway and Lambda</Link>
             </li>
           </ul>
         </nav>
